@@ -1,0 +1,60 @@
+<div id="product-extra-info" role="tabpanel">
+
+<!-- Nav tabs -->
+	<ul class="nav nav-tabs" role="tablist">
+		<li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab"><%= Spree.t(:description) %></a></li>
+		<li role="presentation"><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab"><%= Spree.t(:properties) %></a></li>
+	   <li role="presentation"><a href="#supplier" aria-controls="supplier" role="tab" data-toggle="tab"><%= Spree.t(:about_the_supplier) %></a></li>
+		 <li role="presentation"><a href="#measures" aria-controls="measures" role="tab" data-toggle="tab"><%= Spree.t(:measures) %></a></li>
+	</ul>
+
+	<!-- Tab panes -->
+	<div class="tab-content">
+		<div role="tabpanel" class="tab-pane active" id="description">
+			<%= @product.description %>
+		</div>
+		<div role="tabpanel" class="tab-pane" id="properties">
+			<% unless @product_properties.empty? %>  
+  			<table id="product-properties" class="table table-striped" data-hook>
+    			<tbody>
+      			<% @product_properties.each do |product_property| %>
+        		<% css_class = cycle('even', 'odd', :name => "properties") %>
+        			<tr class="<%= css_class %>">
+          			<td><strong><%= product_property.property.presentation %></strong></td>
+          			<td><%= product_property.value %></td>
+							</tr>
+						<% end %>
+							<% reset_cycle('properties') %>
+    			</tbody>
+  			</table>
+			<% end %>
+		</div>
+		<div role="tabpanel" class="tab-pane" id="supplier">
+			<div id="supplier-profile-picture" class="col-md-3">
+				<%= image_tag @product.suppliers.first.profile_picture.url %>
+			</div>
+			<div id="supplier-profile-info" class="col-md-9">	
+				<h1><%= @product.suppliers.first.name %></h1>
+				<span><%= @product.suppliers.first.bio %></span>
+			</div>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="measures">
+  			<table id="product-measures" class="table" data-hook>
+    			<tbody>
+        		<tr>
+							<td><strong><%= Spree.t(:weight) %></strong></td>
+          		<td><%= @product.weight %></td>
+						</tr>
+        		<tr>
+							<td><strong><%= Spree.t(:height) %> x <%= Spree.t(:width) %> x <%= Spree.t(:depth) %></strong></td>
+							<td><%= @product.height %> x <%= @product.width %> x <%= @product.depth %> cms.</td>
+						</tr>
+	    		</tbody>
+  			</table>
+			</div>
+	</div>
+</div>
+
+
+
+

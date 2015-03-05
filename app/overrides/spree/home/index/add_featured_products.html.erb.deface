@@ -1,0 +1,8 @@
+<!-- insert_top '#homepage-products' -->
+<div id="featured-products-title" class="col-md-12">
+<h1><%= Spree.t(:featured_products) %></h1>
+</div>
+<%= render :partial => 'spree/shared/featured_products', :locals => { :products => @products }  %>
+<div id="products-title" class="col-md-12">
+<h1><%= Spree.t(:products) %>
+</div>

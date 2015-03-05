@@ -1,0 +1,51 @@
+<%# no need for thumbnails unless there is more than one image %>
+<% if (@product.images + @product.variant_images).uniq.size > 1 %>
+	
+	<div class="carousel slide" id="thumbnail-carousel">
+		<div class="carousel-inner">
+
+			<% @product.images.each_slice(4).with_index do |slice, index| %>
+				<% if index == 1 %> 
+					<div class="item active">
+					<% else %> 
+					<div class="item">
+					<% end %>			
+					<ul class="thumbnails list-inline" data-hook>
+						
+						<% slice.each do |i| %>
+							<li class='tmb-all tmb-<%= i.viewable.id %>'>
+								<%= link_to(image_tag(i.attachment.url(:mini), class: "thumbnail"), i.attachment.url(:product)) %>
+							</li>
+						<% end %>
+				
+					</ul>
+				</div>
+			<% end %>
+			
+			<% if @product.has_variants? %>
+				<% @product.variant_images.each_slice(4) do |slice| %>	
+					<div class="item">
+						<ul class="thumbnails list-inline" data-hook>
+						
+							<% slice.each do |i| %>
+								<% next if @product.images.include?(i) %>
+									<li class='vtmb tmb-<%= i.viewable.id %>'>
+										<%= link_to(image_tag(i.attachment.url(:mini), class: "thumbnail"), i.attachment.url(:product)) %>
+									</li>
+							<% end %>
+						
+						</ul>
+					</div>
+				<% end %>
+			<% end %>
+
+		</div>
+		<a data-slide="prev" href="#thumbnail-carousel" class="left carousel-control"><span class="glyphicon glyphicon-chevron-left">
+				<span class="sr-only">Previous</span>
+			</a>
+			<a data-slide="next" href="#thumbail-carousel" class="right carousel-control">
+			<span class="glyphicon glyphicon-chevron-right">
+				<span class="sr-only">Next</span>
+			</a>
+	</div>
+<% end %>

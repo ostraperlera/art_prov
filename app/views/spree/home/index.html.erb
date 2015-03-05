@@ -1,0 +1,15 @@
+
+<div id="homepage_products" data-hook>
+  <% cache(cache_key_for_products) do %>
+		<!-- insert_top '#homepage-products' -->
+		<div id="featured-products-title" class="col-md-12">
+			<h1 class="section-title"><span><%= Spree.t(:featured_products) %></span></h1>
+		</div>
+		<%= render :partial => 'spree/shared/featured_products', :locals => { :products => @products }  %>
+		<div id="products-title" class="col-md-12">
+			<h1><%= Spree.t(:products) %>
+		</div>	
+		<%= render :partial => 'spree/shared/products', :locals => { :products => @products.where(:featured => false) } %>
+  <% end %>
+</div>
+

@@ -1,0 +1,30 @@
+es:
+  views:
+    pagination:
+      next: "Siguiente"
+      last: "Última"
+      truncate: "Siguen..."
+  spree:
+    featured_products: "Destacados esta semana"
+    sign_up_for_our_newsletter: "Sumate a nuestra lista"
+    days_to_delivery: "Plazo de entrega"
+    days: "días"
+    days_to_delivery_in_days: "Plazo de entrega (en número de días)"
+    about_the_supplier: "Sobre el vendedor"
+    more_products_by: "Otros productos de"
+    measures: "Medidas"
+    default: "Por defecto"
+    slug: "Link permanente"
+    promotionable: "Incluir en promociones"
+    lamps: "lámparas"
+    chairs: "sillas"
+    tables: "mesas"
+    stools: "taburetes"
+    tableware: "menaje"
+    other: "varios"
+  substract: "-"
+  activerecord:
+    models:
+      spree/shipping_method:
+        other: "metodos de envío"
+   

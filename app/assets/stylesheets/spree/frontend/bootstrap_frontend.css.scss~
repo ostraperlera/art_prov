@@ -1,0 +1,203 @@
+//Add your custom bootstrap variables here, see https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss for full list of variables.
+
+// Google Fonts
+@import url(http://fonts.googleapis.com/css?family=Lato:400,400italic,700);
+
+//----
+// Custom variables 
+//----
+
+$icon-font-path: "../../bootstrap/";
+$font-family-sans-serif: "Lato", Helvetica, arial, sans-serif !important;
+$font-size-base: 16px;
+$gray-base: #000;
+$font-size-h1: floor(($font-size-base * 1.625));
+$brand-success: #d26e4b;
+$btn-font-weight: bold;
+$btn-text-transform: uppercase;
+$border-base: 1px solid #ddd;
+$line-height-base: 1.6;
+$brand-primary: #627f9a;
+$link-hover-color: #000;
+$panel-bg: transparent;
+$panel-default-border: none;
+$brand-danger: #e70614;
+$breadcrumb-bg: transparent;
+$breadcrumb-color: #999;
+$breadcrumb-padding-horizontal: 0px;
+$breadcrumb-padding-vertical: 5px;
+
+
+
+// Import everything else
+@import "bootstrap";
+
+//---
+// Custom css
+//---
+
+#supplier-title h1 { margin-bottom: 5px; font-size: 48px; }
+#supplier-location { padding-bottom: 10px; color: $gray-light; 
+#supplier-title h1 {margin-bottom: 5px; font-size: 48px; }
+										span { font-size: 18px; } }
+#supplier_profile_picture_field { padding-bottom: 30px; }
+
+.debug_dump {
+	clear: both;
+	float: left;
+	width: 100%;
+	margin-top: 45px;
+}
+
+
+
+.row { padding-top: $modal-inner-padding * 2; }
+
+.horizontal-line { opacity: 0.1;
+	width: 30px;
+	height: 3px;
+	display: block;
+	margin: 10px 0 10px 0;
+	background-color: #000;
+	#spree-footer & { background-color: #fff; opacity: 0.3; }
+}
+#spree-header span.glyphicon.glyphicon-shopping-cart { font-size: 24px; } 
+
+.product-title { font-weight: bold;
+	h1 & { margin-bottom: 0px; }
+}
+.well {
+	background-color: transparent; 
+	border: none; 
+	padding: 0px;
+	color: $gray-light;
+}
+.btn-success { text-transform: $btn-text-transform;}
+#main-image { border: none; }
+.tmb-all { border: none;
+	&.selected {
+		border: $border-base;
+	}
+}
+img.thumbnail { border: none; margin-bottom: 0px; }
+.product-title { color: $gray; }
+
+.navbar .nav,
+.navbar .nav > li {
+	float:none;
+	display:inline-block;
+					*display:inline; /* ie7 fix */
+					*zoom:1; /* hasLayout ie7 trigger */
+					vertical-align: top;
+				}
+				.navbar-inner {
+					text-align:center;
+				}
+
+				.panel-footer { background-color: $panel-bg; border: none; height: 100px; @include box-shadow(0); }
+
+				#carousel-homepage { 
+					& img {
+						width: 100%; 
+						height: auto;
+					}
+				}
+				#mc_embed_signup{ background:transparent; clear:left; }
+				//---
+				// -- Spree Custom Header and Footer ---------------------
+				//---
+				#topbar {
+					background-color: $brand-danger;
+					.container {
+						color: #fff;
+						padding: 4px 0 4px 0;
+					}
+				}
+				#spree-header {
+					background: #eee; 
+					margin-bottom: 0px;
+					border-bottom: 1px solid #D6D6D6;
+					#header {
+						background: #fff;
+						padding: 0;
+						border-bottom: 1px solid #D6D6D6;
+						.container-logo {
+							padding: $line-height-computed 0 $line-height-computed 0;
+						}
+					}
+					#logo img {
+						max-height: 70px;
+					}
+					.nav a {
+						color: $gray-base;
+						font-size: $font-size-small;
+						font-weight: bold;
+						text-transform: uppercase;
+						opacity: 0.5;
+						&:hover {
+							opacity: 1;
+						}
+					}
+					.navbar {
+						border: 0;
+						margin-bottom: 0;
+						min-height: 0px;
+					}
+				}
+
+				.center.navbar .nav,
+				.center.navbar .nav > li {
+					float:none;
+					display:inline-block;
+									*display:inline; /* ie7 fix */ 
+									*zoom:1; /* hasLayout ie7 trigger */
+									vertical-align: top;
+								}
+								.center .navbar-inner {
+									text-align:center;
+								}
+
+								#spree-footer {
+									background: $gray-dark;
+									padding-top: $padding-base-horizontal;
+									margin-top: $line-height-computed;
+									color: #ddd;
+									h5 { text-transform: uppercase;
+										color: #fff;
+									}
+								}
+
+								.breadcrumb { text-transform: uppercase;
+									a { font-size: $font-size-large; font-weight: bold; color: $breadcrumb-color; }
+									a:hover { color: #000; }
+
+
+								}
+								//---
+								// -- Spree Layout Custom Rules -------------------------
+								//---
+								//TODO, bug #6
+
+								.alert-error, .alert-registration_error { @extend .alert-danger; }
+								.alert-alert { @extend .alert-info; }
+								.alert-notice { @extend .alert-info; }
+
+								.product-body {
+									width: 100%;
+									height: 350px;
+									overflow: hidden;
+									padding: 0px;
+
+									& img {
+										width: 100%;
+										height: 400px;
+										margin: -50px 0 0 0;
+									}
+								}
+
+								.progress-steps {
+									margin-top: $line-height-computed;
+								}
+								h1 {
+									margin-bottom: 30px;
+								}

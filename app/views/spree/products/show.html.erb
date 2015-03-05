@@ -1,0 +1,71 @@
+<% cache [current_currency, @product] do %>
+  <div data-hook="product_show" itemscope itemtype="http://schema.org/Product">
+    <% @body_id = 'product-details' %>
+
+    <div class="col-md-5" data-hook="product_left_part">
+      <div data-hook="product_left_part_wrap">
+
+        <div id="product-images" data-hook="product_images">
+          <div id="main-image" class="panel panel-default" data-hook>
+            <div class="panel-body text-center">
+              <%= render :partial => 'image' %>
+            </div>
+          </div>
+          <div id="thumbnails" data-hook>
+            <%= render :partial => 'thumbnails' %>
+          </div>
+        </div>
+
+			</div>
+    </div>
+
+    <div class="col-md-7" data-hook="product_right_part">
+      <div data-hook="product_right_part_wrap">
+
+        <div id="product-description" data-hook="product_description">
+					<h1 class="product-title" itemprop="name"><%= accurate_title %></h1>
+					<div class="horizontal-line"></div>
+					<%= render :partial => 'spree/products/display_price' %>
+					<%= social_share_button_tag(@product.name, :popup => "true") %>	
+					<div class="well" itemprop="description" data-hook="excerpt">
+						<%= product_excerpt(@product) %>
+					</div>
+					<% if @product.delivery_estimate %>
+						<div class="delivery-estimate" data-hook>
+							<span><%= Spree.t(:days_to_delivery) %>: <%= @product.delivery_estimate %> <%= Spree.t(:days) %></span>
+						</div>
+					<% end %>
+
+          <div id="cart-form" data-hook="cart_form" class="col-md-7">
+            <%= render :partial => 'cart_form' %>
+					</div>
+				</div>
+
+        <%= render :partial => 'taxons' %>
+
+      </div>
+    </div>
+
+		<div class="col-md-12" data-hook="product-footer-part">
+			<div data-hook="product-footer-wrap">
+				
+				<div data-hook="product_properties">
+					<%= render :partial => 'properties', :locals => { :properties => @product.product_properties, :product => @product } %>
+        </div>
+
+        <div data-hook="promotions">
+          <%= render :partial => 'promotions' %>
+        </div>
+
+			</div>
+		</div>
+		
+  </div>
+<% end %>
+<%= render :partial => 'spree/products/thumbnail_slider_js' %>
+
+
+
+
+
+
